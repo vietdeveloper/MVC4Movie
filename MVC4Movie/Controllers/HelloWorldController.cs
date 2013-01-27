@@ -1,5 +1,5 @@
-﻿using System.Web.Mvc;
-using System.Web;
+﻿using System.Web;
+using System.Web.Mvc;
 
 namespace Mvc4Movie.Controllers
 {
@@ -16,9 +16,11 @@ namespace Mvc4Movie.Controllers
         //
         // GET: /HelloWord/Welcome/
 
-        public string Welcome(string name, int numTimes = 1)
+        public ActionResult Welcome(string name, int numTimes = 1)
         {
-            return HttpUtility.HtmlEncode("Hello "+name+", NumTimes is: "+numTimes);
+            ViewBag.Message = "Hello " + name;
+            ViewBag.NumTimes = numTimes;
+            return View();
         }
     }
 }
